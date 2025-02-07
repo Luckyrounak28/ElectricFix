@@ -1,87 +1,236 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroFix</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        .hidden {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   ElectroFix
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   .hidden {
             display: none;
         }
-    </style>
-</head>
-<body class="font-roboto bg-gray-100">
-    <header class="bg-gray-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">ElectroFix</h1>
-            <nav>
-                <ul class="hidden md:flex space-x-4">
-                    <li><a href="about.html" class="hover:underline">About</a></li>
-                    <li><a href="contact.html" class="hover:underline">Contact</a></li>
-                    <li><a href="track.html" class="hover:underline">Track Complaint</a></li>
-                    <li><a href="electrician.html" class="hover:underline">Electrician</a></li>
-                    <li><a href="admin.html" class="hover:underline">Admin</a></li>
-                </ul>
-                <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="flex flex-col space-y-2 mt-2">
-                <li><a href="about.html" class="block text-white hover:underline">About</a></li>
-                <li><a href="contact.html" class="block text-white hover:underline">Contact</a></li>
-                <li><a href="track.html" class="block text-white hover:underline">Track Complaint</a></li>
-                <li><a href="electrician.html" class="block text-white hover:underline">Electrician</a></li>
-                <li><a href="admin.html" class="block text-white hover:underline">Admin</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main class="container mx-auto p-4">
-        <section class="bg-white p-6 rounded shadow-md">
-            <h2 class="text-xl font-bold mb-4">Submit Your Complaint</h2>
-            <form>
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700">Name</label>
-                    <input type="text" id="name" class="w-full p-2 border border-gray-300 rounded" placeholder="Your Name">
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700">Email</label>
-                    <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded" placeholder="Your Email">
-                </div>
-                <div class="mb-4">
-                    <label for="phone" class="block text-gray-700">Phone</label>
-                    <input type="tel" id="phone" class="w-full p-2 border border-gray-300 rounded" placeholder="Your Phone Number">
-                </div>
-                <div class="mb-4">
-                    <label for="appliance" class="block text-gray-700">Appliance</label>
-                    <select id="appliance" class="w-full p-2 border border-gray-300 rounded">
-                        <option value="ac">AC</option>
-                        <option value="fridge">Fridge</option>
-                        <option value="tv">TV</option>
-                        <option value="cooler">Cooler</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label for="description" class="block text-gray-700">Description</label>
-                    <textarea id="description" class="w-full p-2 border border-gray-300 rounded" placeholder="Describe your issue"></textarea>
-                </div>
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
-            </form>
-        </section>
-
-        <section class="mt-6">
-            <a href="tel:+1234567890" class="bg-green-600 text-white px-4 py-2 rounded inline-flex items-center">
-                <i class="fas fa-phone-alt mr-2"></i> Call Now
-            </a>
-        </section>
-    </main>
-
-    <script>
-        document.getElementById('menu-btn').addEventListener('click', function() {
+  </style>
+ </head>
+ <body class="font-roboto bg-gray-100">
+  <header class="bg-gray-600 text-white p-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold">
+     ElectroFix
+    </h1>
+    <nav>
+     <ul class="hidden md:flex space-x-4">
+      <li>
+       <a class="hover:underline" href="about.html">
+        About
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="contact.html">
+        Contact
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="track.html">
+        Track Complaint
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="electrician.html">
+        Electrician
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="admin.html">
+        Admin
+       </a>
+      </li>
+     </ul>
+     <button class="md:hidden text-white focus:outline-none" id="menu-btn">
+      <i class="fas fa-bars">
+      </i>
+     </button>
+    </nav>
+   </div>
+   <div class="hidden md:hidden" id="mobile-menu">
+    <ul class="flex flex-col space-y-2 mt-2">
+     <li>
+      <a class="block text-white hover:underline" href="about.html">
+       About
+      </a>
+     </li>
+     <li>
+      <a class="block text-white hover:underline" href="contact.html">
+       Contact
+      </a>
+     </li>
+     <li>
+      <a class="block text-white hover:underline" href="track.html">
+       Track Complaint
+      </a>
+     </li>
+     <li>
+      <a class="block text-white hover:underline" href="electrician.html">
+       Electrician
+      </a>
+     </li>
+     <li>
+      <a class="block text-white hover:underline" href="admin.html">
+       Admin
+      </a>
+     </li>
+    </ul>
+   </div>
+  </header>
+  <main class="container mx-auto p-4">
+   <section class="bg-white p-6 rounded shadow-md">
+    <h2 class="text-xl font-bold mb-4">
+     Select Your Appliance
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="AC">
+      <img alt="Icon of an air conditioner" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/dposCw86c20CqkpqaA840heKU1RscpH56pZ9DIFanfc.jpg" width="100"/>
+      <p>
+       AC
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Fridge">
+      <img alt="Icon of a refrigerator" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/Z13pCR1bY9wfae1UG3CRABxusRBxqrNPLy5B8U6s4uI.jpg" width="100"/>
+      <p>
+       Fridge
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="TV">
+      <img alt="Icon of a television" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/q9J6u0Ir41MLw9xlhAd_epV3mDauDO2dwIb2qg84sro.jpg" width="100"/>
+      <p>
+       TV
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Cooler">
+      <img alt="Icon of an air cooler" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/bDANse8u_yhSKfbNWIC3tmLXyoCo2uC-jL6YFkKFAKE.jpg" width="100"/>
+      <p>
+       Cooler
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Mixer">
+      <img alt="Icon of a mixer machine" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/aaW0JqvNzUirVAKlYNsjvp3zwxBLvJwRPD4Kmtw5N3I.jpg" width="100"/>
+      <p>
+       Mixer
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Heater">
+      <img alt="Icon of a heater" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/nT3OffcORNa48IbyYFUtTXvphxtmJLNNfhmhepJUsOY.jpg" width="100"/>
+      <p>
+       Heater
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Geyser">
+      <img alt="Icon of a geyser" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/avNHmYyQ_WvwNf7is5vlW71sWJv5fcCwoBxuIYBp9fE.jpg" width="100"/>
+      <p>
+       Geyser
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Washing Machine">
+      <img alt="Icon of a washing machine" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/KfPvuZjRC4J4ADsF06n608d5hEzQBqHeMNTo3HVj5MM.jpg" width="100"/>
+      <p>
+       Washing Machine
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Microwave">
+      <img alt="Icon of a microwave oven" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/Q7zi_bGCvMvE4C5OMUfPPB8L_IaME0c27mExQd3nHZc.jpg" width="100"/>
+      <p>
+       Microwave
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Vacuum Cleaner">
+      <img alt="Icon of a vacuum cleaner" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/O8D7ItwuKZc45y4kPSwkBuY3y6gZF_n0b-QVE8-9VgA.jpg" width="100"/>
+      <p>
+       Vacuum Cleaner
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Fan">
+      <img alt="Icon of a fan" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/arvQ4-hsF7hF5DVVS4HPcVWwmlBxQtc-vUl_vNAJylc.jpg" width="100"/>
+      <p>
+       Fan
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Iron">
+      <img alt="Icon of an iron" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/XYqHHD8IQuqX3vrHiOYWmyx4V99ckJ7thNigzg_MnTw.jpg" width="100"/>
+      <p>
+       Iron
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Toaster">
+      <img alt="Icon of a toaster" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/8_ZUrYDnm3fBrJy0-o4jPj1cCxVDuTS6TuXhhn31anc.jpg" width="100"/>
+      <p>
+       Toaster
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Blender">
+      <img alt="Icon of a blender" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/4ShQ5f70DXlofJHj_cNUAWlZb2izr7g6r7eLfKvTFKc.jpg" width="100"/>
+      <p>
+       Blender
+      </p>
+     </div>
+     <div class="appliance-option cursor-pointer p-4 bg-gray-200 rounded text-center" data-appliance="Dishwasher">
+      <img alt="Icon of a dishwasher" class="mx-auto mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/FGA68KIlylN_PPfj2iWKql5SrClR7vsgcSi6HiShckQ.jpg" width="100"/>
+      <p>
+       Dishwasher
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="bg-white p-6 rounded shadow-md mt-6 hidden" id="complaint-form-section">
+    <h2 class="text-xl font-bold mb-4">
+     Submit Your Complaint
+    </h2>
+    <form id="complaint-form">
+     <div class="mb-4">
+      <label class="block text-gray-700" for="name">
+       Name
+      </label>
+      <input class="w-full p-2 border border-gray-300 rounded" id="name" placeholder="Your Name" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700" for="email">
+       Email
+      </label>
+      <input class="w-full p-2 border border-gray-300 rounded" id="email" placeholder="Your Email" type="email"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700" for="phone">
+       Phone
+      </label>
+      <input class="w-full p-2 border border-gray-300 rounded" id="phone" placeholder="Your Phone Number" type="tel"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700" for="appliance">
+       Appliance
+      </label>
+      <input class="w-full p-2 border border-gray-300 rounded" id="appliance" readonly="" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700" for="description">
+       Description
+      </label>
+      <textarea class="w-full p-2 border border-gray-300 rounded" id="description" placeholder="Describe your issue"></textarea>
+     </div>
+     <button class="bg-blue-600 text-white px-4 py-2 rounded" type="submit">
+      Submit
+     </button>
+    </form>
+   </section>
+  </main>
+  <a class="fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded inline-flex items-center" href="tel:+1234567890">
+   <i class="fas fa-phone-alt mr-2">
+   </i>
+   Call Now
+  </a>
+  <script>
+   document.getElementById('menu-btn').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
@@ -89,6 +238,15 @@
                 menu.classList.add('hidden');
             }
         });
-    </script>
-</body>
+
+        document.querySelectorAll('.appliance-option').forEach(function(element) {
+            element.addEventListener('click', function() {
+                var appliance = this.getAttribute('data-appliance');
+                document.getElementById('appliance').value = appliance;
+                document.getElementById('complaint-form-section').classList.remove('hidden');
+                window.scrollTo(0, document.getElementById('complaint-form-section').offsetTop);
+            });
+        });
+  </script>
+ </body>
 </html>

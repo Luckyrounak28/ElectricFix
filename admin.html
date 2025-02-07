@@ -1,156 +1,302 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroFix - Admin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .hidden {
+ <head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   ElectroFix - Admin
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+   .hidden {
             display: none;
         }
-    </style>
-</head>
-<body class="font-roboto bg-gray-100">
-    <header class="bg-gray-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">ElectroFix</h1>
-            <nav>
-                <ul class="hidden md:flex space-x-4">
-                    <li><a href="about.html" class="hover:underline">About</a></li>
-                    <li><a href="contact.html" class="hover:underline">Contact</a></li>
-                    <li><a href="track.html" class="hover:underline">Track Complaint</a></li>
-                    <li><a href="electrician.html" class="hover:underline">Electrician</a></li>
-                    <li><a href="admin.html" class="hover:underline">Admin</a></li>
-                </ul>
-                <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="flex flex-col space-y-2 mt-2">
-                <li><a class="hover:underline" href="main.html">Home</a></li>
-                <li><a href="about.html" class="block text-white hover:underline">About</a></li>
-                <li><a href="contact.html" class="block text-white hover:underline">Contact</a></li>
-                <li><a href="track.html" class="block text-white hover:underline">Track Complaint</a></li>
-                <li><a href="electrician.html" class="block text-white hover:underline">Electrician</a></li>
-                <li><a href="admin.html" class="block text-white hover:underline">Admin</a></li>
-                <li>
-    
-            </ul>
-        </div>
-    </header>
-
-    <main class="container mx-auto p-4">
-        <section class="bg-white p-6 rounded shadow-md mb-6">
-            <h2 class="text-xl font-bold mb-4">Admin Dashboard</h2>
-            <div class="flex space-x-4 mb-4">
-                <button id="create-account-btn" class="bg-green-600 text-white px-4 py-2 rounded">Create Electrician Account</button>
-                <button id="monthly-report-btn" class="bg-blue-600 text-white px-4 py-2 rounded">See Monthly Report</button>
-            </div>
-            <div id="create-account-section" class="hidden">
-                <h3 class="text-lg font-bold mb-4">Create Electrician Account</h3>
-                <form>
-                    <div class="mb-4">
-                        <label for="electrician-name" class="block text-gray-700">Name</label>
-                        <input type="text" id="electrician-name" class="w-full p-2 border border-gray-300 rounded" placeholder="Electrician Name">
-                    </div>
-                    <div class="mb-4">
-                        <label for="electrician-email" class="block text-gray-700">Email</label>
-                        <input type="email" id="electrician-email" class="w-full p-2 border border-gray-300 rounded" placeholder="Electrician Email">
-                    </div>
-                    <div class="mb-4">
-                        <label for="electrician-password" class="block text-gray-700">Password</label>
-                        <input type="password" id="electrician-password" class="w-full p-2 border border-gray-300 rounded" placeholder="Password">
-                    </div>
-                    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Create Account</button>
-                </form>
-            </div>
-            <div id="monthly-report-section" class="hidden">
-                <h3 class="text-lg font-bold mb-4">Monthly Report</h3>
-                <canvas id="monthlyReportChart" width="400" height="200"></canvas>
-            </div>
-        </section>
-
-        <section class="bg-white p-6 rounded shadow-md">
-            <h2 class="text-xl font-bold mb-4">Complaints Management</h2>
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white">
-                    <thead>
-                        <tr>
-                            <th class="py-2 px-4 border-b">Complaint ID</th>
-                            <th class="py-2 px-4 border-b">Name</th>
-                            <th class="py-2 px-4 border-b">Email</th>
-                            <th class="py-2 px-4 border-b">Phone</th>
-                            <th class="py-2 px-4 border-b">Appliance</th>
-                            <th class="py-2 px-4 border-b">Description</th>
-                            <th class="py-2 px-4 border-b">Assign To</th>
-                            <th class="py-2 px-4 border-b">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="py-2 px-4 border-b">1</td>
-                            <td class="py-2 px-4 border-b">John Doe</td>
-                            <td class="py-2 px-4 border-b">john@example.com</td>
-                            <td class="py-2 px-4 border-b">1234567890</td>
-                            <td class="py-2 px-4 border-b">AC</td>
-                            <td class="py-2 px-4 border-b">Not cooling properly</td>
-                            <td class="py-2 px-4 border-b">
-                                <select class="w-full p-2 border border-gray-300 rounded">
-                                    <option value="electrician1">Electrician 1</option>
-                                    <option value="electrician2">Electrician 2</option>
-                                </select>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded">Assign</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">2</td>
-                            <td class="py-2 px-4 border-b">Jane Smith</td>
-                            <td class="py-2 px-4 border-b">jane@example.com</td>
-                            <td class="py-2 px-4 border-b">0987654321</td>
-                            <td class="py-2 px-4 border-b">Fridge</td>
-                            <td class="py-2 px-4 border-b">Not cooling</td>
-                            <td class="py-2 px-4 border-b">
-                                <select class="w-full p-2 border border-gray-300 rounded">
-                                    <option value="electrician1">Electrician 1</option>
-                                    <option value="electrician2">Electrician 2</option>
-                                </select>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded">Assign</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">3</td>
-                            <td class="py-2 px-4 border-b">Alice Johnson</td>
-                            <td class="py-2 px-4 border-b">alice@example.com</td>
-                            <td class="py-2 px-4 border-b">1122334455</td>
-                            <td class="py-2 px-4 border-b">TV</td>
-                            <td class="py-2 px-4 border-b">No picture</td>
-                            <td class="py-2 px-4 border-b">
-                                <select class="w-full p-2 border border-gray-300 rounded">
-                                    <option value="electrician1">Electrician 1</option>
-                                    <option value="electrician2">Electrician 2</option>
-                                </select>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded">Assign</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        document.getElementById('menu-btn').addEventListener('click', function() {
+  </style>
+ </head>
+ <body class="font-roboto bg-gray-100 relative">
+  <img alt="Background image of various electronic appliances" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0" height="800" src="https://storage.googleapis.com/a1aa/image/8DZ7BqiF3d9UExnl_UnPTbTiJH5Dc6qRX5ivKRpGVaQ.jpg" width="1200"/>
+  <div class="relative z-10">
+   <header class="bg-gray-800 text-white p-4 relative z-20">
+    <img alt="Background image of electronic tools and appliances" class="absolute inset-0 w-full h-full object-cover opacity-30 z-10" height="800" src="https://storage.googleapis.com/a1aa/image/8DZ7BqiF3d9UExnl_UnPTbTiJH5Dc6qRX5ivKRpGVaQ.jpg" width="1200"/>
+    <div class="relative z-30 container mx-auto flex justify-between items-center">
+     <h1 class="text-2xl font-bold">
+      ElectroFix
+     </h1>
+     <nav>
+      <ul class="hidden md:flex space-x-4">
+       <li>
+        <a class="hover:underline relative z-40" href="main.html">
+         Home
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline relative z-40" href="about.html">
+         About
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline relative z-40" href="contact.html">
+         Contact
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline relative z-40" href="track.html">
+         Track Complaint
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline relative z-40" href="electrician.html">
+         Electrician
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline relative z-40" href="admin.html">
+         Admin
+        </a>
+       </li>
+      </ul>
+      <button class="md:hidden text-white focus:outline-none relative z-40" id="menu-btn">
+       <i class="fas fa-bars">
+       </i>
+      </button>
+     </nav>
+    </div>
+    <div class="hidden md:hidden relative z-30" id="mobile-menu">
+     <ul class="flex flex-col space-y-2 mt-2">
+      <li>
+       <a class="block text-white hover:underline" href="main.html">
+        Home
+       </a>
+      </li>
+      <li>
+       <a class="block text-white hover:underline" href="about.html">
+        About
+       </a>
+      </li>
+      <li>
+       <a class="block text-white hover:underline" href="contact.html">
+        Contact
+       </a>
+      </li>
+      <li>
+       <a class="block text-white hover:underline" href="track.html">
+        Track Complaint
+       </a>
+      </li>
+      <li>
+       <a class="block text-white hover:underline" href="electrician.html">
+        Electrician
+       </a>
+      </li>
+      <li>
+       <a class="block text-white hover:underline" href="admin.html">
+        Admin
+       </a>
+      </li>
+     </ul>
+    </div>
+   </header>
+   <main class="container mx-auto p-4">
+    <section class="bg-white p-6 rounded shadow-md mb-6">
+     <h2 class="text-xl font-bold mb-4 text-blue-600">
+      Admin Dashboard
+     </h2>
+     <div class="flex space-x-4 mb-4">
+      <button class="bg-green-600 text-white px-4 py-2 rounded" id="create-account-btn">
+       Create Electrician Account
+      </button>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded" id="monthly-report-btn">
+       See Monthly Report
+      </button>
+      <button class="bg-yellow-600 text-white px-4 py-2 rounded" id="export-data-btn">
+       Export Data
+      </button>
+     </div>
+     <div class="hidden" id="create-account-section">
+      <h3 class="text-lg font-bold mb-4 text-blue-600">
+       Create Electrician Account
+      </h3>
+      <form>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="electrician-name">
+         Name
+        </label>
+        <input class="w-full p-2 border border-gray-300 rounded" id="electrician-name" placeholder="Electrician Name" type="text"/>
+       </div>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="electrician-email">
+         Email
+        </label>
+        <input class="w-full p-2 border border-gray-300 rounded" id="electrician-email" placeholder="Electrician Email" type="email"/>
+       </div>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="electrician-password">
+         Password
+        </label>
+        <input class="w-full p-2 border border-gray-300 rounded" id="electrician-password" placeholder="Password" type="password"/>
+       </div>
+       <button class="bg-green-600 text-white px-4 py-2 rounded" type="submit">
+        Create Account
+       </button>
+      </form>
+     </div>
+     <div class="hidden" id="monthly-report-section">
+      <h3 class="text-lg font-bold mb-4 text-blue-600">
+       Monthly Report
+      </h3>
+      <canvas height="200" id="monthlyReportChart" width="400">
+      </canvas>
+     </div>
+    </section>
+    <section class="bg-white p-6 rounded shadow-md">
+     <h2 class="text-xl font-bold mb-4 text-blue-600">
+      Complaints Management
+     </h2>
+     <div class="overflow-x-auto">
+      <table class="min-w-full bg-white">
+       <thead>
+        <tr>
+         <th class="py-2 px-4 border-b">
+          Complaint ID
+         </th>
+         <th class="py-2 px-4 border-b">
+          Name
+         </th>
+         <th class="py-2 px-4 border-b">
+          Email
+         </th>
+         <th class="py-2 px-4 border-b">
+          Phone
+         </th>
+         <th class="py-2 px-4 border-b">
+          Appliance
+         </th>
+         <th class="py-2 px-4 border-b">
+          Description
+         </th>
+         <th class="py-2 px-4 border-b">
+          Assign To
+         </th>
+         <th class="py-2 px-4 border-b">
+          Action
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td class="py-2 px-4 border-b">
+          1
+         </td>
+         <td class="py-2 px-4 border-b">
+          John Doe
+         </td>
+         <td class="py-2 px-4 border-b">
+          john@example.com
+         </td>
+         <td class="py-2 px-4 border-b">
+          1234567890
+         </td>
+         <td class="py-2 px-4 border-b">
+          AC
+         </td>
+         <td class="py-2 px-4 border-b">
+          Not cooling properly
+         </td>
+         <td class="py-2 px-4 border-b">
+          <select class="w-full p-2 border border-gray-300 rounded">
+           <option value="electrician1">
+            Electrician 1
+           </option>
+           <option value="electrician2">
+            Electrician 2
+           </option>
+          </select>
+         </td>
+         <td class="py-2 px-4 border-b">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded">
+           Assign
+          </button>
+         </td>
+        </tr>
+        <tr>
+         <td class="py-2 px-4 border-b">
+          2
+         </td>
+         <td class="py-2 px-4 border-b">
+          Jane Smith
+         </td>
+         <td class="py-2 px-4 border-b">
+          jane@example.com
+         </td>
+         <td class="py-2 px-4 border-b">
+          0987654321
+         </td>
+         <td class="py-2 px-4 border-b">
+          Fridge
+         </td>
+         <td class="py-2 px-4 border-b">
+          Not cooling
+         </td>
+         <td class="py-2 px-4 border-b">
+          <select class="w-full p-2 border border-gray-300 rounded">
+           <option value="electrician1">
+            Electrician 1
+           </option>
+           <option value="electrician2">
+            Electrician 2
+           </option>
+          </select>
+         </td>
+         <td class="py-2 px-4 border-b">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded">
+           Assign
+          </button>
+         </td>
+        </tr>
+        <tr>
+         <td class="py-2 px-4 border-b">
+          3
+         </td>
+         <td class="py-2 px-4 border-b">
+          Alice Johnson
+         </td>
+         <td class="py-2 px-4 border-b">
+          alice@example.com
+         </td>
+         <td class="py-2 px-4 border-b">
+          1122334455
+         </td>
+         <td class="py-2 px-4 border-b">
+          TV
+         </td>
+         <td class="py-2 px-4 border-b">
+          No picture
+         </td>
+         <td class="py-2 px-4 border-b">
+          <select class="w-full p-2 border border-gray-300 rounded">
+           <option value="electrician1">
+            Electrician 1
+           </option>
+           <option value="electrician2">
+            Electrician 2
+           </option>
+          </select>
+         </td>
+         <td class="py-2 px-4 border-b">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded">
+           Assign
+          </button>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+   </main>
+   <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
@@ -168,6 +314,10 @@
             document.getElementById('monthly-report-section').classList.toggle('hidden');
             document.getElementById('create-account-section').classList.add('hidden');
             renderChart();
+        });
+
+        document.getElementById('export-data-btn').addEventListener('click', function() {
+            exportTableToCSV('complaints_data.csv');
         });
 
         function renderChart() {
@@ -199,6 +349,43 @@
                 }
             });
         }
-    </script>
-</body>
+
+        function exportTableToCSV(filename) {
+            var csv = [];
+            var rows = document.querySelectorAll("table tr");
+            
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+                
+                for (var j = 0; j < cols.length; j++) 
+                    row.push(cols[j].innerText);
+                
+                csv.push(row.join(","));        
+            }
+
+            // Download CSV
+            downloadCSV(csv.join("\n"), filename);
+        }
+
+        function downloadCSV(csv, filename) {
+            var csvFile;
+            var downloadLink;
+
+            csvFile = new Blob([csv], {type: "text/csv"});
+
+            downloadLink = document.createElement("a");
+
+            downloadLink.download = filename;
+
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+
+            downloadLink.style.display = "none";
+
+            document.body.appendChild(downloadLink);
+
+            downloadLink.click();
+        }
+   </script>
+  </div>
+ </body>
 </html>
